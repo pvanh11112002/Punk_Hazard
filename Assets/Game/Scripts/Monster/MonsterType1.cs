@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterTpye1 : Monster
+public class MonsterType1 : Monster
 {
     void Start()
     {
         this.hp = 100;
+        this.speed = 1;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (this.hp > 0)
@@ -19,11 +19,6 @@ public class MonsterTpye1 : Monster
         else
         {
             OnDestroy();
-        }
-        
+        }        
     }
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    hp -= 20;
-    //}
 }

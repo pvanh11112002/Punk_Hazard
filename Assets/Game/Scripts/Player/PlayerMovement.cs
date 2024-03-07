@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;   
     public Vector2 movement;
     public GameObject skinMask;
-    public SpriteRenderer skin;
+    private SpriteRenderer skin;
 
     private void Awake()
     {
@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");               
+        movement.y = Input.GetAxisRaw("Vertical");  
     }
     private void FixedUpdate()
     {

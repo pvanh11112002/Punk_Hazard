@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private float timer;
     public float damage = 30;
-
-    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Monster"))

@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class ObjPoolManager : Singleton<ObjPoolManager>
 {
-    private List<GameObject> bulletpooledObjects = new List<GameObject>();
+    private List<GameObject> bulletPooledObjects = new List<GameObject>();
     public int bulletNumber;
     public GameObject bulletPrefab;
 
     private List<GameObject> explosionPooledObj = new List<GameObject>();
     public int explosionNumber;
     public GameObject explosionPrefab;
-    
+
+    private List<GameObject> monsterBulletPooledObjects = new List<GameObject>();
+    public int monsterBulletNumber;
+    public GameObject monsterBulletPrefab;
     void Start()
     {
         for (int i = 0; i < bulletNumber; i++)
         {
             GameObject obj = Instantiate(bulletPrefab);
             obj.SetActive(false);
-            bulletpooledObjects.Add(obj);
+            bulletPooledObjects.Add(obj);
         }
         for (int j = 0; j < explosionNumber; j++)
         {
@@ -26,14 +29,20 @@ public class ObjPoolManager : Singleton<ObjPoolManager>
             obj.SetActive(false);
             explosionPooledObj.Add(obj);
         }
+        for (int k = 0; k < monsterBulletNumber; k++)
+        {
+            GameObject obj = Instantiate(monsterBulletPrefab);
+            obj.SetActive(false);
+            monsterBulletPooledObjects.Add(obj);
+        }
     }
     public GameObject GetPooledObject()
     {
-        for(int i = 0; i < bulletpooledObjects.Count; i++)
+        for(int i = 0; i < bulletPooledObjects.Count; i++)
         {
-            if (!bulletpooledObjects[i].activeInHierarchy)
+            if (!bulletPooledObjects[i].activeInHierarchy)
             {
-                return bulletpooledObjects[i];
+                return bulletPooledObjects[i];
             }
         }
         return null;
@@ -45,6 +54,17 @@ public class ObjPoolManager : Singleton<ObjPoolManager>
             if (!explosionPooledObj[i].activeInHierarchy)
             {
                 return explosionPooledObj[i];
+            }
+        }
+        return null;
+    }
+    public GameObject GetMonsterBulletPooledObject()
+    {
+        for (int i = 0; i < monsterBulletPooledObjects.Count; i++)
+        {
+            if (!monsterBulletPooledObjects[i].activeInHierarchy)
+            {
+                return monsterBulletPooledObjects[i];
             }
         }
         return null;
