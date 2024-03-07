@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72ff5899082eee4687d7551b8fd5a96, type: 3}
   m_Name: New Speed Up
   m_EditorClassIdentifier: 
-  name: 
-  cooldownTime: 0
-  activeTime: 0
+  name: SpeedUp
+  cooldownTime: 3
+  activeTime: 3
+  addSpeed: 5
+  defaultSpeed: 5
