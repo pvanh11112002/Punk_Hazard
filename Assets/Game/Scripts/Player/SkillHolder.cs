@@ -22,7 +22,7 @@ public class SkillHolder : MonoBehaviour
             case SkillState.ready:
                 if (Input.GetKeyDown(key))
                 {
-                    skill.Active();
+                    skill.Active(gameObject);
                     state = SkillState.active;
                     activeTime = skill.activeTime;
                 }
@@ -34,6 +34,7 @@ public class SkillHolder : MonoBehaviour
                 }
                 else
                 {
+                    skill.BeginCoolDown(gameObject);
                     state = SkillState.cooldown;
                     cooldownTime = skill.cooldownTime;
                 }
