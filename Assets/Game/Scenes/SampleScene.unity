@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8787f5619429d40bf23064e1126e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill: {fileID: 11400000, guid: 7a743306b02f8f742834c83ecf484a10, type: 2}
+  skill: {fileID: 11400000, guid: ea642297fc339b945a89ab508841825b, type: 2}
   key: 32
 --- !u!4 &502709750 stripped
 Transform:
@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab5a0845222acce4fbca29a1593e4ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletNumber: 5
+  bulletNumber: 10
   bulletPrefab: {fileID: 9039661627702764665, guid: 4a46c36251629684da3616efe27e0d61, type: 3}
   explosionNumber: 3
   explosionPrefab: {fileID: 196310836304124004, guid: 8849c908451a6f442a53986371e00666, type: 3}

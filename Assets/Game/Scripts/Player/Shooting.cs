@@ -7,8 +7,8 @@ public class Shooting : MonoBehaviour
     private Camera mainCam;
     private Vector3 mousePos;
     public Transform bulletTransform;
-    public int bulletCount = 0;
-    public int maxBulletOfRow;
+    public float bulletCount = 0;
+    public float maxBulletOfRow;
     public float bulletForce = 20f;
     public bool canFire = true;
 
