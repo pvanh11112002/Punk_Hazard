@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class SkillHolder : MonoBehaviour
 {
+    public Skill[] arrSkill;
     public Skill skill;
+    public float test;
     float cooldownTime;
     float activeTime;
     enum SkillState
@@ -15,6 +19,16 @@ public class SkillHolder : MonoBehaviour
     }    
     SkillState state = SkillState.ready;
     public KeyCode key;
+    private void Start()
+    {
+        //BulletUpgrade skill1 = new BulletUpgrade();
+        //arrSkill[0] = skill1;
+        skill = Resources.Load<Skill>("New Speed Up");
+        //if(test == 1)
+        //{
+        //    skill = arrSkill[0];
+        //}    
+    }
     void Update()
     {
         switch (state)
