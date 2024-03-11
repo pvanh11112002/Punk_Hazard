@@ -9,10 +9,14 @@ public class Monster : Character
   
     protected void Move()
     {
-        Vector2 dir = player.transform.position - transform.position;
-        dir.Normalize();
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(Vector3.forward * angle);  
+        if (GameManager.Instance.gameState == GameState.GamePlay)
+        {
+            Vector2 dir = player.transform.position - transform.position;
+            dir.Normalize();
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+        }    
+          
     }    
 }

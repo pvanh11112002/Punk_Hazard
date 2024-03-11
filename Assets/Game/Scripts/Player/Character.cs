@@ -5,7 +5,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public float hp;
-    protected float speed;
+    public float speed;
     public void MinusHP(float damage)
     {
         hp -= damage;

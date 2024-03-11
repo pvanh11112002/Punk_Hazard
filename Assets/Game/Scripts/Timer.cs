@@ -13,23 +13,27 @@ public class Timer : Singleton<Timer>
     // Update is called once per frame
     void Update()
     {
-        if(remainingTime > 0)
+        if(GameManager.Instance.gameState == GameState.GamePlay)
         {
-            remainingTime -= Time.deltaTime;
-            elapsedTime += Time.deltaTime;
-            if(elapsedTime > 60)
+            if (remainingTime > 0)
             {
-                elapsedTime = 0;
-            }    
-            
-        }
-        else if( remainingTime < 0)
-        {
-            remainingTime = 0;
-            timerText.color = Color.red;
-        }
-        int minutes = Mathf.FloorToInt(remainingTime / 60);
-        int seconds = Mathf.FloorToInt(remainingTime % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+                remainingTime -= Time.deltaTime;
+                elapsedTime += Time.deltaTime;
+                if (elapsedTime > 60)
+                {
+                    elapsedTime = 0;
+                }
+
+            }
+            else if (remainingTime < 0)
+            {
+                remainingTime = 0;
+                timerText.color = Color.red;
+            }
+            int minutes = Mathf.FloorToInt(remainingTime / 60);
+            int seconds = Mathf.FloorToInt(remainingTime % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }    
+        
     }
 }

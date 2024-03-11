@@ -25,31 +25,34 @@ public class Shooting : MonoBehaviour
     }
     void Update()
     {
-        GetMousePos();
-
-        if(!canFire)
+        if(GameManager.Instance.gameState == GameState.GamePlay)
         {
-            timer += Time.deltaTime;
-            if(timer > timeBetweenFiring ) 
+            GetMousePos();
+            if (!canFire)
             {
-                canFire = true;
-                timer = 0;
+                timer += Time.deltaTime;
+                if (timer > timeBetweenFiring)
+                {
+                    canFire = true;
+                    timer = 0;
+                }
             }
-        }
-        if(onRechargingTime == true)
-        {
-            rechargingTimeElapsed += Time.deltaTime;
-            if (rechargingTimeElapsed > rechargingTimeMax)
+            if (onRechargingTime == true)
             {
-                onRechargingTime = false;
-                bulletCount = 0;
-                rechargingTimeElapsed = 0;
+                rechargingTimeElapsed += Time.deltaTime;
+                if (rechargingTimeElapsed > rechargingTimeMax)
+                {
+                    onRechargingTime = false;
+                    bulletCount = 0;
+                    rechargingTimeElapsed = 0;
+                }
             }
-        }
-        if (canFire && Input.GetMouseButton(0) && onRechargingTime == false)
-        {
-            Firing();
-        }
+            if (canFire && Input.GetMouseButton(0) && onRechargingTime == false)
+            {
+                Firing();
+            }
+        }    
+        
     }
     private void GetMousePos()
     {

@@ -7,7 +7,7 @@ public class MonsterType1 : Monster
     void Start()
     {
         this.hp = 100;
-        this.speed = 0;
+        this.speed = 1;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 

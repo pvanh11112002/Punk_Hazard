@@ -23,7 +23,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Move();
+        if(GameManager.Instance.gameState == GameState.GamePlay)
+        {
+            Move();
+        }    
+        
     }
     private void Move()
     {      
