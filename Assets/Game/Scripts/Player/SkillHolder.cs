@@ -21,9 +21,7 @@ public class SkillHolder : MonoBehaviour
     public KeyCode key;
     private void Start()
     {
-        //BulletUpgrade skill1 = new BulletUpgrade();
-        //arrSkill[0] = skill1;
-        skill = Resources.Load<Skill>("New Speed Up");
+        skill = Resources.Load<Skill>("New Meteorite Skill");
         //if(test == 1)
         //{
         //    skill = arrSkill[0];

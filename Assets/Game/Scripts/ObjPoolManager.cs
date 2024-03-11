@@ -15,25 +15,63 @@ public class ObjPoolManager : Singleton<ObjPoolManager>
     private List<GameObject> monsterBulletPooledObjects = new List<GameObject>();
     public int monsterBulletNumber;
     public GameObject monsterBulletPrefab;
+
+    private List<GameObject> meteoritePooledObjects = new List<GameObject>();
+    public int meteoriteNumber;
+    public GameObject meteoritePrefab;
     void Start()
     {
-        for (int i = 0; i < bulletNumber; i++)
+        //for (int i = 0; i < bulletNumber; i++)
+        //{
+        //    GameObject obj = Instantiate(bulletPrefab);
+        //    obj.SetActive(false);
+        //    bulletPooledObjects.Add(obj);
+        //}
+        //for (int j = 0; j < explosionNumber; j++)
+        //{
+        //    GameObject obj = Instantiate(explosionPrefab);
+        //    obj.SetActive(false);
+        //    explosionPooledObj.Add(obj);
+        //}
+        //for (int k = 0; k < monsterBulletNumber; k++)
+        //{
+        //    GameObject obj = Instantiate(monsterBulletPrefab);
+        //    obj.SetActive(false);
+        //    monsterBulletPooledObjects.Add(obj);
+        //}
+        //for (int l = 0; l < meteoriteNumber; l++)
+        //{
+        //    GameObject obj = Instantiate(meteoritePrefab);
+        //    obj.SetActive(false);
+        //    meteoritePooledObjects.Add(obj);
+        //}
+
+        if (GameManager.Instance.gameState == GameState.GamePlay)
         {
-            GameObject obj = Instantiate(bulletPrefab);
-            obj.SetActive(false);
-            bulletPooledObjects.Add(obj);
-        }
-        for (int j = 0; j < explosionNumber; j++)
-        {
-            GameObject obj = Instantiate(explosionPrefab);
-            obj.SetActive(false);
-            explosionPooledObj.Add(obj);
-        }
-        for (int k = 0; k < monsterBulletNumber; k++)
-        {
-            GameObject obj = Instantiate(monsterBulletPrefab);
-            obj.SetActive(false);
-            monsterBulletPooledObjects.Add(obj);
+            for (int i = 0; i < bulletNumber; i++)
+            {
+                GameObject obj = Instantiate(bulletPrefab);
+                obj.SetActive(false);
+                bulletPooledObjects.Add(obj);
+            }
+            for (int j = 0; j < explosionNumber; j++)
+            {
+                GameObject obj = Instantiate(explosionPrefab);
+                obj.SetActive(false);
+                explosionPooledObj.Add(obj);
+            }
+            for (int k = 0; k < monsterBulletNumber; k++)
+            {
+                GameObject obj = Instantiate(monsterBulletPrefab);
+                obj.SetActive(false);
+                monsterBulletPooledObjects.Add(obj);
+            }
+            for (int l = 0; l < meteoriteNumber; l++)
+            {
+                GameObject obj = Instantiate(meteoritePrefab);
+                obj.SetActive(false);
+                meteoritePooledObjects.Add(obj);
+            }
         }
     }
     public GameObject GetPooledObject()
@@ -65,6 +103,17 @@ public class ObjPoolManager : Singleton<ObjPoolManager>
             if (!monsterBulletPooledObjects[i].activeInHierarchy)
             {
                 return monsterBulletPooledObjects[i];
+            }
+        }
+        return null;
+    }
+    public GameObject GetMeteoritePooledObject()
+    {
+        for (int i = 0; i < meteoritePooledObjects.Count; i++)
+        {
+            if (!meteoritePooledObjects[i].activeInHierarchy)
+            {
+                return meteoritePooledObjects[i];
             }
         }
         return null;

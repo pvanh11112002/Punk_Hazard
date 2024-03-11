@@ -5,21 +5,29 @@ using UnityEngine;
 public class BulletUpgrade : Skill
 {
     private float defaultNumOfBullet;
+    private float defaultTimeBetweenFiring;
     private float defaultReloadTimes;
     private Transform getGun;
     private Shooting gun;
-    private float addNumOfBulltet = 4f;
-    private float minusReloadTimes = 1f;
     public override void Active(GameObject parent)
     {
         getGun = parent.transform.GetChild(1);
         gun = getGun.GetComponent<Shooting>();
         defaultNumOfBullet = gun.maxBulletOfRow;
+        defaultTimeBetweenFiring = gun.timeBetweenFiring;
         defaultReloadTimes = gun.rechargingTimeMax;
-        
+        gun.maxBulletOfRow = 16f;
+        gun.timeBetweenFiring = 0.01f;
+        gun.rechargingTimeMax = 1f;
+
+
     }
     public override void BeginCoolDown(GameObject parent)
     {
-        base.BeginCoolDown(parent);
+        getGun = parent.transform.GetChild(1);
+        gun = getGun.GetComponent<Shooting>();
+        gun.maxBulletOfRow = defaultNumOfBullet;
+        gun.timeBetweenFiring = defaultTimeBetweenFiring;
+        gun.rechargingTimeMax = defaultReloadTimes;
     }
 }

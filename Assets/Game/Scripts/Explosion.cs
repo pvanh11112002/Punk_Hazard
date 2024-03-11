@@ -10,7 +10,7 @@ public class Explosion : MonoBehaviour
         if(collision.CompareTag("Monster"))
         {
             var mons = collision.gameObject.GetComponent<Monster>();
-            mons.MinusHP(explosionDame);
+            mons.OnDestroy();
         }       
     }
     public void OnDestroy()
